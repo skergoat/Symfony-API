@@ -63,6 +63,7 @@ First attempt to make a little test API on Symfony
       bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9......
 
    Register token and then use API documentation  
-      
+   
+   All functionalities does not work. It's not a real API, just a test 
       
 
