@@ -32,14 +32,14 @@ First attempt to make a little test API on Symfony
       $ openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096
       $ openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout
       
-Go to 
+   Go to 
 
-      config > jwt > private.pem
-      config > jwt > public.pem
-      
-And copy keys 
+         config > jwt > private.pem
+         config > jwt > public.pem
 
-Go to src > security > token.html.twig and paste public and private keys in the template at their respective places   
+   And copy keys 
+
+   Go to src > security > token.html.twig and paste public and private keys in the template at their respective places   
 
 
 - USE API  
