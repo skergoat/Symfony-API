@@ -1,7 +1,7 @@
 # symfony-api
 First attempt to make a little test API on Symfony
 
-LOAD : 
+LOAD APP : 
    
    Download 
       
@@ -26,7 +26,7 @@ LOAD :
 
 
 
-OPENSSL 
+GENERATE OPENSSL 
 
       $ mkdir -p config/jwt
       $ openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096
