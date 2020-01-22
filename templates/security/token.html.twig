@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Get token{% endblock %}
+
+{% block body %}
+
+<div class='jumbotron' style="text-align:center;">
+    <h1>Authorization infos</h1>
+</div>
+
+<div class="page_row">
+
+    <form method="post" enctype='application/json' id="get_token" style="margin-top:0px;">
+
+        <h1 class="h3 mb-3 font-weight-bold">1. Get Token</h1>
+
+        <button class="btn btn-lg btn-primary" type="submit">
+        Get token
+        </button>
+        
+    </form>
+    <div id="token_response"></div>
+
+</div>
+
+<div class="page_row page_row_bottom">
+
+    <h1 class="h3 mb-3 font-weight-bold" style="text-align:center;">2. Copy token, keys and validate signature at <a href="https://jwt.io/" target="_blank">https://jwt.io/</a></h1>
+
+    <div id="keys_container">
+        <div class="keys">
+
+            <h1 class="h4 mb-3 font-weight-bold" style="text-align:center;">2.1. Private Key</h1>
+
+            <div class="display_key">
+                -----BEGIN ENCRYPTED PRIVATE KEY-----
+                MIIJnzBJBgkqhkiG9w0BBQ0wPDAbBgkqhkiG9w0BBQwwDgQIynDp3abupqECAggA
+                MB0GCWCGSAFlAwQBKgQQ0gHq/MyIqItRwtj9VBudLwSCCVD9z1zynfgAgZU7qOFx
+                NnbhL/ZMOFdlFIN9MbVlxyFixrWYuZfo/+Ww/JcXPT34AhGH8GqCu80zTasxFtzV
+                f0AdVqhDBSMK4u8s/j3ZRC9ziCfqCoBH0GMMBH39Idh1JCPZ5cnV0JAZSGODriTP
+                yJtYWC2J08sa5aPrbxlAQ/RJfinfb31DI0PKPwbB2x/eviL7bbgpH9scPFD5jINb
+                /c2AVt7O/slnxchEsY3B4GBGpBw4FNjJQsPGCLIT5ZHHWGRArQh9hqNYHE+wZie9
+                mEA0nQkRqH2ksV2jXZILwP2KM3k0fDDr9NtjHDySFjDMlvcDgf/vM6xbN5d6lTRC
+                ceP0vfcAYYlpWmhT6Dz6+Ag7nLSeiCS70r5xB4qSLV7AWp2xiBOdKlQKPRSik9uk
+                6axU3aUGxIfVJoYgcnzRzsYpDQgszfrZFecR6c7LaQ7uVlqAj7FM114PGfIUAKTE
+                6GAUdWQfKjaOTAprev273HCY8xu7YbKuKnqQDyZJipT6q6UfRpPHnxrgazl7CW4X
+                LhAnHen2igJEaW0cqAb+jVPdQOqzczphQl3F93oTHg8gW+6De5n9VIcW6rIPAYg1
+                nBgcpBxkjJujSP0WmLqBVN4Yq7zKzZ0F3XSV496PNHPqhLAbqUQORbpOdl88kiZh
+                iHmh5DxtGcmm8PYkOOACMvtq2N9g8sPTbNJ/vO4j6lBMPD1z3WHHO1aSvpb3oFtr
+                NaMRF2ivTU+4zM+YeJt25yF8vVaSW6SNi1twNTcugFbgvNmjNTz413q2Bread1jB
+                1H8yc+nV8z0ric02f6Zu+U+83cv0x0RwDg3TbVhjzukJwHC0w88ejbAK3tghatJg
+                lHO+INPV25oekBMcPSZ61+QZBuftOExkCLUNgfcjgOEZ7uzH/a0f00DbZhpamgCk
+                ZcXd33NhmzgQf6SS0RBvm/2CnlOolLJuGJ0SrGg1PifZ7ccX5ry/Xv0cPuS0NxM/
+                rqOdWqoma1+Wc5UxYoDkGqpM9uDh5N8UCW2NCHTdt9FHxeJA3dS7G8H10DjNfsM1
+                pdtwZJCKsNp5DstrIP9Ia5Z7nYmqO6fPiGj4lqh1YtVjnzCO58GZcD7Iz5EXYdrU
+                ndal5Eba1BgC8oWLZtFIZA1JDs/Z4u8mEE4L9cSrE9lk8zgPbk5Aiif8A7i/Hbdx
+                xQadnxvXG+vMpfZDspNRqdZfPyW4laxyo4isSGkNEXm0a0UtiS6gwOQ3ZYL9JXIT
+                Y7622guGbdXfqcnx4OAH2xQlrAvt/lg/eIkbrieSI1E0ZOF13fO3rRnEMu0aykvP
+                rJlyR/Kz+FMEEEIxAkofvwVVtdoNnq5rOV3fIA9ndVbgQznKUtV0cQSTF88Ojr4w
+                JzJxCI87Q0SBV8t2PFox34yrXE0L+b7gpXaG6jM1xVjJmHfEtUmsSm3I8h3o+En/
+                Dht9VNeaz3zgNxeZed0qNme50xIXz70Z46ycrQqGPtz/8mf/e9VGg3CfYdSVrOVM
+                J2e4GmLl1opUIKPBQU9kqxMj5X65RYbVgDqExD1bpwZC2CLNv0hpwToR/roLIFwt
+                gXGDEpyESuJvK5/w9kuuAebFXbkksSRf6IAskDUTZKT3RLS2gaBhRgjO9tNEmdsI
+                pQ15C7GSoLVPPt2zCmlRqoqu2O2ZSE79rEVl2TJk2ZtmfS1W8nVwmj3R1YCpUj0b
+                w8J8xBRkrcZGlwAn5qtIRj+WXlUhumWnapUTfnWWxhn/WMg9Kafx1Wjp9mRJa3Wc
+                D96X1Ei0SUeq+GZmOsr2YOcoqm5e6UQ71bjHOQKgnJhyG15xarWJojbUXST79ZqZ
+                3dMBE45B1R5MvoTlYcL57Ak+ppBYUgbMb2GC/K/8hZP29E6AVq0+CPuczTXsk9VN
+                QeGAtpvGAS0ZJyPJgN2FygIgMGnRCOle8p/HV5tzRfOjEGFFomvaRlqkI6czJ4z4
+                zIk6oq4jlMAYj6HoVbHvO48nqn+7n5+r37XK1JSiLpnj1SVfqeUNjhelHtuedfJQ
+                SkUoRzNkAl5PLxObux1o59YZNxRNzLDQeDQzruD5JNjNd5GOUXH38OTPZokXUir/
+                bfMZpDPlv6lAxuqfa92+lR0DndXGJaCqazMlbNlAMmY3PJBhbE8nK7VZ5S0kmYJx
+                DyT2n/MMefoMfwzwWOwOTYsPylb2YHkAE88sVDJ8wCndrFLvaVhTMmIxHmBs4/o5
+                t+gFKHD4NR21QU1hsXKOQZaDNzmM1VEdzTyCQbaqLAV8hEgpq7xzhLLDVZugvLvr
+                TRmGpRe1zB3igwvjz+YtSXZh/5lOuSt2Ujuc8CsIfgEX2UdTYk1xqHjBRO7GE2lu
+                pb6t1LGeo7PchZrnq6TIqPcgNm/eYAzLqSNFxIIapAJXIZ4n4fhMYZTzXGyPu/tY
+                twqUiSqdgIFGAULDKExguZrufzAMZRLEv3aLgOk/3gwdwXAZZuOpGHJ1ioO5jPhZ
+                m318U2QIL069Tcx8izWNQaNJDv+5rUsllJ3jEV8iusWO7ruq6sZ+nczhC1ftuptq
+                WJr+Ga3/RFS0XruaKSSECz2LR+F9iHFC3fwiug12D0R/vTuyBJ2J9FZ8acjldxe1
+                9UusmCVvbo/b2FUoFcGY3GBFft9L7XfVPRWxhl94gf3srffUxsAxDyEfNPXuJOz4
+                OW2+3XDzg/kVxlHrVwzPxDLKLRAKGguS3ZlzM8rizC1Z6HR9AsrUou8i1jUB6oxq
+                D8xzYB07ZeBDCBzlEnWDbbrsTpGrvyJrB9ltq7SRoQlLETwVElQ9JI9TXTa8xC3G
+                UxYIiHHI47lyrLmnVlT8YrYOqw66ZEWhBh5/EpDssZr9Gg+jDR+ub5SdcFVTeFCG
+                jJJ5G7O1iYvHymBoQP8oK6LFsd6eXo6OlMhdp/EH9+wFKEKW08G+j9hGWJVFyCKF
+                HZa30jrcBOR4oXOWJmOj3PLapMMWQwjfUi/bMlk9ZNJGmdzPv2rXLtzhNvGmjAVv
+                EWbbj6LSm9QwtI/Q4gO8Op7EPlE5/6SURUlGJKCDd8cBhaHWJyn0YDx1NJ3x5HXK
+                BnB6Jslc7IvpNHoJ9wezcOxwl4HYda7n7GQjKzc6ijumlm3qhN0osCZwJ07TAika
+                xLHs9l39sSDG4QjzcOw4NhR5xSeArQ8POlHO2AitqJ3mLuI9ISTQkYj1JUHHfTnM
+                pumMyx3N/mMOvTtkoiSpoQDAEA==
+                -----END ENCRYPTED PRIVATE KEY-----
+            </div>
+        
+        </div>
+        <div class="keys">
+        
+            <h1 class="h4 mb-3 font-weight-bold" style="text-align:center;">2.2. Public Key</h1>
+
+            <div class="display_key">
+                -----BEGIN PUBLIC KEY-----
+                MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAw0P+t3duSCOSiOwJ6eHv
+                wzl8+1G2RCFk0aOVvRMPc+xxiIjqLrgbAONCaGiAOvHp2n7zKc7HnkZfV4VagE1c
+                JNYJ6gMeunYmabR4MiNKOYQ3TMqgKy7+Wrd5KgmIFBikc6pCIMRcmDpup08GL38J
+                U3sHkv+sHeJgw2D0r6BIbeiNQ61baWWE3x4g5CNZkD5Ym9xp1dY7+InSWVpAKFdv
+                X/MlWj7aF/B1fGAdIBK9xcqKHMO+dzuaTBaig7pjG4PnG792fnF3kc4SwVDBSlUL
+                yptmyW6tni9a+VAQRvlgrGrWNSNUN9OPeOOWaHZu7d8bklA1iVxdJwBFk3HFU8qq
+                UcwBDdLhFR/wMP30sTvyVzsHoZBSmOGVISMoISRuakFFPvGZYRnUkAudCgpLn7mM
+                C4Psa8lGrXiqU8gAXd7b/NHRouNyjgl4PpFnfkdSidakfUUAUsdlC36OMd4UCTTM
+                T1bGAPC1uXG7rlSwAZra30ImlkVLuGBDMtfjp/RdsoL4zpZrCzG0dY8P8GXXf6RF
+                GyajoNzE1bCjf2xpF/JxBK4E0jxd7E3K5wT8L76hKAKgZX2HOnoJzHyq3Z5aI6aS
+                icOjz8dWAIY+On8jdf7uDb/3+zXvwpvPZ8leuGMlYYpFhdA3rShOiD8fNxY4PMek
+                rMpOYpL6A9JOa5WzGhFHQfkCAwEAAQ==
+                -----END PUBLIC KEY-----
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+<div class="page_row page_row_bottom">
+
+    <h1 class="h3 mb-3 font-weight-bold" style="text-align:center;">3. Go to Api Docs and paste token into "Authorize field" to access data</h1>
+    <ul style="margin-top:50px;">
+        <li>Copy token (red part) : {"token":"<span style="background:red;">........................................</span>"}</li>
+        <li>Go to API Dashboard > Api Documentation > Authorize</li>
+        <li>Paste token and write "bearer" just before : bearer <span style="background:red;"> ........................................</span></li>
+        <li>Send authorization</li>
+        <li>Now you can use documentation and access data</li>
+    </ul>
+</div>
+
+{% endblock %}

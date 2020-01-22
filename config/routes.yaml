@@ -1,0 +1,24 @@
+# index:
+#   path: /
+#   controller: App\Controller\DefaultController::index
+
+# default:
+#     prefix: /
+#     resource: '../src/Controller'
+
+# api:
+#     prefix: /api
+#     resource: '../src/Controller/Api'
+
+app.swagger_ui:
+  path: /doc
+  methods: GET
+  defaults: { _controller: nelmio_api_doc.controller.swagger_ui }
+
+api_login_check:
+  path: /api/login_check
+  methods:  [POST]
+  controller: App\Controller\AuthController::getTokenUser
+
+
+    

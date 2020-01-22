@@ -1,0 +1,19 @@
+nelmio_api_doc:
+  documentation:
+    info:
+      title: Smartphone Api
+      description: API about smartphones !
+      version: 1.0.0
+      security_definitions:
+    securityDefinitions:
+        api_key:
+            type: apiKey
+            description: Your Json Web Token
+            name:  authorization
+            in: header
+    security:
+        - api_key: []
+  areas:
+    path_patterns: # an array of regexps
+      - ^/(?!/doc$)
+  

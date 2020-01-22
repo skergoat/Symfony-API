@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+    
+    <div id="overviews" class="section lb" style="height:100vh;">
+        <div class="container">
+            <div class="section-title row text-center">
+                <div class="col-md-8 offset-md-2">
+                    <h3>API Dashboard</h3>
+                    <p class="lead">Choose to create a token an then to access the swagger documentation</p>
+                </div>
+            </div><!-- end title -->
+
+            <hr class="invis"> 
+
+            <div class="row"> 
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="icon-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+                        <i class="flaticon-server global-radius effect-1 alignleft"></i>
+                        <h3>Create access token</h3>
+                        <p>Use this link to create your API token.
+						<small class="readmore">
+                            <a href="/token" class="btn btn-danger">Create token</a>
+						</small>
+						</p>
+                    </div><!-- end icon-wrapper -->
+                </div><!-- end col -->
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="icon-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+                        <i class="flaticon-server global-radius effect-1 alignleft"></i>
+                        <h3>API Documentation</h3>
+                        <p>Use your token to discover how the API works.
+						<small class="readmore">
+							<a href="/doc" class="btn btn-danger">Enter API docs</a>
+						</small>
+						</p>
+                    </div><!-- end icon-wrapper -->
+                </div><!-- end col -->
+
+            </div><!-- end row -->
+            
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+{% endblock %}

@@ -1,0 +1,251 @@
+Script started on Tue Jan 21 14:49:08 2020
+[?1034hbash-3.2$ composer require lexik/jwt-authentication-bundle
+Using version [32m^2.6[39m for [32mlexik/jwt-authentication-bundle[39m
+[32m./composer.json has been updated[39m
+[32mLoading composer repositories with package information[39m
+[32mUpdating dependencies (including require-dev)[39m
+[32mRestricting packages listed in "symfony/symfony" to "4.4.*"[39m
+[32mPackage operations: 8 installs, 0 updates, 0 removals[39m
+  - Installing [32msymfony/property-access[39m ([33mv4.4.2[39m): Loading from cache
+  - Installing [32msymfony/security-http[39m ([33mv4.4.2[39m): Loading from cache
+  - Installing [32msymfony/security-guard[39m ([33mv4.4.2[39m): Loading from cache
+  - Installing [32msymfony/security-csrf[39m ([33mv4.4.2[39m): Loading from cache
+  - Installing [32msymfony/security-bundle[39m ([33mv4.4.2[39m): Loading from cache
+  - Installing [32mnamshi/jose[39m ([33m7.2.3[39m): Loading from cache
+  - Installing [32mlcobucci/jwt[39m ([33m3.3.1[39m): Loading from cache
+  - Installing [32mlexik/jwt-authentication-bundle[39m ([33mv2.6.5[39m): Loading from cache
+[30;43mPackage zendframework/zend-code is abandoned, you should avoid using it. Use laminas/laminas-code instead.[39;49m
+[30;43mPackage zendframework/zend-eventmanager is abandoned, you should avoid using it. Use laminas/laminas-eventmanager instead.[39;49m
+[32mWriting lock file[39m
+[32mGenerating autoload files[39m
+[32mSymfony operations: 2 recipes (92992077b0fbd301c47f92dc8fbe239d)[39m
+  - Configuring [32msymfony/security-bundle[39m ([33m>=4.4[39m): From github.com/symfony/recipes:master
+  - Configuring [32mlexik/jwt-authentication-bundle[39m ([33m>=2.5[39m): From github.com/symfony/recipes:master
+[32mocramius/package-versions:[39m  Generating version class...
+[32mocramius/package-versions:[39m ...done generating version class
+Executing script cache:clear [32m[OK][39m
+Executing script assets:install public [32m[OK][39m
+
+[32mSome files may have been created or updated to configure your new packages.[39m
+Please [33mreview[39m, [33medit[39m and [33mcommit[39m them: these files are [33myours[39m.
+
+bash-3.2$ mkdir -p config/jwt
+bash-3.2$ openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096
+..++
+......................................................++
+Enter PEM pass phrase:
+Verifying - Enter PEM pass phrase:
+bash-3.2$ openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout
+Enter pass phrase for config/jwt/private.pem:
+bash-3.2$ bin/console debug:router
+ -------------------------- -------- -------- ------ ----------------------------------- 
+ [32m Name                     [39m [32m Method [39m [32m Scheme [39m [32m Host [39m [32m Path                              [39m 
+ -------------------------- -------- -------- ------ ----------------------------------- 
+  _preview_error             ANY      ANY      ANY    /_error/{code}.{_format}           
+  _wdt                       ANY      ANY      ANY    /_wdt/{token}                      
+  _profiler_home             ANY      ANY      ANY    /_profiler/                        
+  _profiler_search           ANY      ANY      ANY    /_profiler/search                  
+  _profiler_search_bar       ANY      ANY      ANY    /_profiler/search_bar              
+  _profiler_phpinfo          ANY      ANY      ANY    /_profiler/phpinfo                 
+  _profiler_search_results   ANY      ANY      ANY    /_profiler/{token}/search/results  
+  _profiler_open_file        ANY      ANY      ANY    /_profiler/open                    
+  _profiler                  ANY      ANY      ANY    /_profiler/{token}                 
+  _profiler_router           ANY      ANY      ANY    /_profiler/{token}/router          
+  _profiler_exception        ANY      ANY      ANY    /_profiler/{token}/exception       
+  _profiler_exception_css    ANY      ANY      ANY    /_profiler/{token}/exception.css   
+  index_author               GET      ANY      ANY    /api/author                        
+  getone_author              GET      ANY      ANY    /api/author/{id}                   
+  new_author                 POST     ANY      ANY    /api/author/new                    
+  update_author              GET      ANY      ANY    /api/author/update/{id}            
+  delete_author              DELETE   ANY      ANY    /api/author/delete/{id}            
+  index_phones               GET      ANY      ANY    /api/phones                        
+  getone_phone               GET      ANY      ANY    /api/phones/{id}                   
+  new_phone                  POST     ANY      ANY    /api/phones/new                    
+  update_phone               GET      ANY      ANY    /api/phones/update/{id}            
+  delete_phone               DELETE   ANY      ANY    /api/phones/delete/{id}            
+  app.swagger                GET      ANY      ANY    /api/doc.json                      
+  app.swagger_ui             GET      ANY      ANY    /api/doc                           
+  api_login_check            ANY      ANY      ANY    /api/login_check                   
+ -------------------------- -------- -------- ------ ----------------------------------- 
+
+2020-01-21T08:06:52+00:00 [info] User Deprecated: Using the WebserverBundle is deprecated since Symfony 4.4. The new Symfony local server has more features, you can use it instead.
+2020-01-21T08:06:52+00:00 [info] User Deprecated: The "App\Controller\AuthorController" class extends "FOS\RestBundle\Controller\FOSRestController" that is deprecated since FOSRestBundle 2.5, use {@see AbstractFOSRestController} instead.
+2020-01-21T08:06:52+00:00 [info] User Deprecated: The "App\Controller\PhoneController" class extends "FOS\RestBundle\Controller\FOSRestController" that is deprecated since FOSRestBundle 2.5, use {@see AbstractFOSRestController} instead.
+bash-3.2$ mkdir config/jwt
+bash-3.2$ openssl genrsa -out config/jwt/private.pem -aes256 4096
+Generating RSA private key, 4096 bit long modulus
+..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................++
+.........................................................................................................................................................................................................................................................................++
+e is 65537 (0x10001)
+Enter pass phrase for config/jwt/private.pem:
+Verifying - Enter pass phrase for config/jwt/private.pem:
+bash-3.2$ openssl rsa -pubout -in config/jwt/private.pem -out
+missing file argument for -out
+usage: rsa [-ciphername] [-check] [-in file] [-inform fmt]
+    [-modulus] [-noout] [-out file] [-outform fmt] [-passin src]
+    [-passout src] [-pubin] [-pubout] [-sgckey] [-text]
+
+ -check             Check consistency of RSA private key
+ -in file           Input file (default stdin)
+ -inform format     Input format (DER, NET or PEM (default))
+ -modulus           Print the RSA key modulus
+ -noout             Do not print encoded version of the key
+ -out file          Output file (default stdout)
+ -outform format    Output format (DER, NET or PEM (default PEM))
+ -passin src        Input file passphrase source
+ -passout src       Output file passphrase source
+ -pubin             Expect a public key (default private key)
+ -pubout            Output a public key (default private key)
+ -sgckey            Use modified NET algorithm for IIS and SGC keys
+ -text              Print in plain text in addition to encoded
+
+Valid ciphername values:
+
+ -AES-128-CBC              -AES-128-CBC-HMAC-SHA1    -AES-128-CFB             
+ -AES-128-CFB1             -AES-128-CFB8             -AES-128-CTR             
+ -AES-128-ECB              -AES-128-OFB              -AES-128-XTS             
+ -AES-192-CBC              -AES-192-CFB              -AES-192-CFB1            
+ -AES-192-CFB8             -AES-192-CTR              -AES-192-ECB             
+ -AES-192-OFB              -AES-256-CBC              -AES-256-CBC-HMAC-SHA1   
+ -AES-256-CFB              -AES-256-CFB1             -AES-256-CFB8            
+ -AES-256-CTR              -AES-256-ECB              -AES-256-OFB             
+ -AES-256-XTS              -AES128                   -AES192                  
+ -AES256                   -BF                       -BF-CBC                  
+ -BF-CFB                   -BF-ECB                   -BF-OFB                  
+ -CAMELLIA-128-CBC         -CAMELLIA-128-CFB         -CAMELLIA-128-CFB1       
+ -CAMELLIA-128-CFB8        -CAMELLIA-128-ECB         -CAMELLIA-128-OFB        
+ -CAMELLIA-192-CBC         -CAMELLIA-192-CFB         -CAMELLIA-192-CFB1       
+ -CAMELLIA-192-CFB8        -CAMELLIA-192-ECB         -CAMELLIA-192-OFB        
+ -CAMELLIA-256-CBC         -CAMELLIA-256-CFB         -CAMELLIA-256-CFB1       
+ -CAMELLIA-256-CFB8        -CAMELLIA-256-ECB         -CAMELLIA-256-OFB        
+ -CAMELLIA128              -CAMELLIA192              -CAMELLIA256             
+ -CAST                     -CAST-cbc                 -CAST5-CBC               
+ -CAST5-CFB                -CAST5-ECB                -CAST5-OFB               
+ -ChaCha                   -DES                      -DES-CBC                 
+ -DES-CFB                  -DES-CFB1                 -DES-CFB8                
+ -DES-ECB                  -DES-EDE                  -DES-EDE-CBC             
+ -DES-EDE-CFB              -DES-EDE-OFB              -DES-EDE3                
+ -DES-EDE3-CBC             -DES-EDE3-CFB             -DES-EDE3-CFB1           
+ -DES-EDE3-CFB8            -DES-EDE3-OFB             -DES-OFB                 
+ -DES3                     -DESX                     -DESX-CBC                
+ -GOST 28147-89            -RC2                      -RC2-40-CBC              
+ -RC2-64-CBC               -RC2-CBC                  -RC2-CFB                 
+ -RC2-ECB                  -RC2-OFB                  -RC4                     
+ -RC4-40                   -RC4-HMAC-MD5             -aes-128-cbc             
+ -aes-128-cbc-hmac-sha1    -aes-128-cfb              -aes-128-cfb1            
+ -aes-128-cfb8             -aes-128-ctr              -aes-128-ecb             
+ -aes-128-gcm              -aes-128-ofb              -aes-128-xts             
+ -aes-192-cbc              -aes-192-cfb              -aes-192-cfb1            
+ -aes-192-cfb8             -aes-192-ctr              -aes-192-ecb             
+ -aes-192-gcm              -aes-192-ofb              -aes-256-cbc             
+ -aes-256-cbc-hmac-sha1    -aes-256-cfb              -aes-256-cfb1            
+ -aes-256-cfb8             -aes-256-ctr              -aes-256-ecb             
+ -aes-256-gcm              -aes-256-ofb              -aes-256-xts             
+ -aes128                   -aes192                   -aes256                  
+ -bf                       -bf-cbc                   -bf-cfb                  
+ -bf-ecb                   -bf-ofb                   -blowfish                
+ -camellia-128-cbc         -camellia-128-cfb         -camellia-128-cfb1       
+ -camellia-128-cfb8        -camellia-128-ecb         -camellia-128-ofb        
+ -camellia-192-cbc         -camellia-192-cfb         -camellia-192-cfb1       
+ -camellia-192-cfb8        -camellia-192-ecb         -camellia-192-ofb        
+ -camellia-256-cbc         -camellia-256-cfb         -camellia-256-cfb1       
+ -camellia-256-cfb8        -camellia-256-ecb         -camellia-256-ofb        
+ -camellia128              -camellia192              -camellia256             
+ -cast                     -cast-cbc                 -cast5-cbc               
+ -cast5-cfb                -cast5-ecb                -cast5-ofb               
+ -chacha                   -des                      -des-cbc                 
+ -des-cfb                  -des-cfb1                 -des-cfb8                
+ -des-ecb                  -des-ede                  -des-ede-cbc             
+ -des-ede-cfb              -des-ede-ofb              -des-ede3                
+ -des-ede3-cbc             -des-ede3-cfb             -des-ede3-cfb1           
+ -des-ede3-cfb8            -des-ede3-ofb             -des-ofb                 
+ -des3                     -desx                     -desx-cbc                
+ -gost89                   -gost89-cnt               -gost89-ecb              
+ -id-aes128-GCM            -id-aes192-GCM            -id-aes256-GCM           
+ -rc2                      -rc2-40-cbc               -rc2-64-cbc              
+ -rc2-cbc                  -rc2-cfb                  -rc2-ecb                 
+ -rc2-ofb                  -rc4                      -rc4-40                  
+ -rc4-hmac-md5            
+bash-3.2$ mkdir -p config/jwt
+bash-3.2$ openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096
+........++
+................++
+Enter PEM pass phrase:
+Verifying - Enter PEM pass phrase:
+bash-3.2$ openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout
+Enter pass phrase for config/jwt/private.pem:
+bash-3.2$ curl -X POST -H "Content-Type: application/json" http://localhost:8000/api/auth/login -d '{"username":"patata","password":"fregida"}'[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1@1[1@2[1@7[1@.[1@0[1@.[1@0[1@.[1@1[1@:[1@8[1@0[1@0[1@0[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P":"patata","password":"fregida"}'[1P":"patata","password":"fregida"}'[1P":"patata","password":"fregida"}'[1P":"patata","password":"fregida"}'[1P":"patata","password":"fregida"}'[1P":"patata","password":"fregida"}'[1P":"patata","password":"fregida"}'[1P":"patata","password":"fregida"}'i":"patata","password":"fregida"}'[1P":"patata","password":"fregida"}'u":"patata","password":"fregida"}'s":"patata","password":"fregida"}'e":"patata","password":"fregida"}'r":"patata","password":"fregida"}'n":"patata","password":"fregida"}'a":"patata","password":"fregida"}'m":"patata","password":"fregida"}'e":"patata","password":"fregida"}'[C[C[C[C[C[C[C[C[C[1P","password":"fregida"}'[1P","password":"fregida"}'[1P","password":"fregida"}'[1P","password":"fregida"}'[1P","password":"fregida"}'[1P","password":"fregida"}'s","password":"fregida"}'t","password":"fregida"}'e","password":"fregida"}'p","password":"fregida"}'h","password":"fregida"}'a","password":"fregida"}'n","password":"fregida"}'e","password":"fregida"}'[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P"}'[1P"}'[1P"}'[1P"}'[1P"}'[1P"}'[1P"}'0"}'0"}'0"}'
+{
+    "code": 406,
+    "message": "No matching accepted Response format could be determined"
+}bash-3.2$  php bin/console make:auth
+
+ [32mWhat style of authentication do you want?[39m [[33mEmpty authenticator[39m]:
+  [[33m0[39m] Empty authenticator
+  [[33m1[39m] Login form authenticator
+ > 1[K
+
+ [32mThe class name of the authenticator to create (e.g. [39m[33mAppCustomAuthenticator[39m[32m)[39m:
+ > ApiAuthenticator
+
+ [32mWhich firewall do you want to update?[39m [[33mlogin[39m]:
+  [[33m0[39m] login
+  [[33m1[39m] api
+  [[33m2[39m] main
+ > 0[K
+
+ [32mChoose a name for the controller class (e.g. [39m[33mSecurityController[39m[32m)[39m [[33mSecurityController[39m]:
+ > SecurityController
+
+ [32mDo you want to generate a '/logout' URL? (yes/no)[39m [[33myes[39m]:
+ > yes
+
+ [34mcreated[39m: src/Security/ApiAuthenticator.php
+ [33mupdated[39m: config/packages/security.yaml
+ [34mcreated[39m: src/Controller/SecurityController.php
+ [34mcreated[39m: templates/security/login.html.twig
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next:
+ - Customize your new authenticator.
+ - Finish the redirect "TODO" in the [32mApp\Security\ApiAuthenticator::onAuthenticationSuccess()[39m method.
+ - Review & adapt the login template: [32mtemplates/security/login.html.twig[39m.
+2020-01-21T08:23:13+00:00 [info] User Deprecated: Using the WebserverBundle is deprecated since Symfony 4.4. The new Symfony local server has more features, you can use it instead.
+bash-3.2$ bin/console debug:container jwt
+
+ [32mSelect one of the following services to display its information[39m:
+  [[33m0 [39m] lexik_jwt_authentication.check_config_command
+  [[33m1 [39m] lexik_jwt_authentication.generate_token_command
+  [[33m2 [39m] lexik_jwt_authentication.security.authentication.provider
+  [[33m3 [39m] lexik_jwt_authentication.security.authentication.listener
+  [[33m4 [39m] lexik_jwt_authentication.security.authentication.entry_point
+  [[33m5 [39m] lexik_jwt_authentication.jwt_manager
+  [[33m6 [39m] lexik_jwt_authentication.key_loader.abstract
+  [[33m7 [39m] lexik_jwt_authentication.key_loader.openssl
+  [[33m8 [39m] lexik_jwt_authentication.key_loader.raw
+  [[33m9 [39m] lexik_jwt_authentication.encoder.default
+  [[33m10[39m] lexik_jwt_authentication.jws_provider.default
+  [[33m11[39m] lexik_jwt_authentication.encoder.lcobucci
+  [[33m12[39m] lexik_jwt_authentication.jws_provider.lcobucci
+  [[33m13[39m] lexik_jwt_authentication.handler.authentication_success
+  [[33m14[39m] lexik_jwt_authentication.handler.authentication_failure
+  [[33m15[39m] lexik_jwt_authentication.security.guard.jwt_token_authenticator
+  [[33m16[39m] lexik_jwt_authentication.extractor.chain_extractor
+  [[33m17[39m] lexik_jwt_authentication.extractor.authorization_header_extractor
+  [[33m18[39m] lexik_jwt_authentication.extractor.query_parameter_extractor
+  [[33m19[39m] lexik_jwt_authentication.extractor.cookie_extractor
+  [[33m20[39m] lexik_jwt_authentication.security.jwt_user_provider
+  [[33m21[39m] Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenInterface
+  [[33m22[39m] Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface
+  [[33m23[39m] Lexik\Bundle\JWTAuthenticationBundle\Services\JWSProvider\JWSProviderInterface
+  [[33m24[39m] Lexik\Bundle\JWTAuthenticationBundle\Security\Http\Authentication\AuthenticationSuccessHandler
+  [[33m25[39m] Lexik\Bundle\JWTAuthenticationBundle\Security\Http\Authentication\AuthenticationFailureHandler
+  [[33m26[39m] lexik_jwt_authentication.jwt_token_authenticator
+  [[33m27[39m] Lexik\Bundle\JWTAuthenticationBundle\TokenExtractor\TokenExtractorInterface
+  [[33m28[39m] lexik_jwt_authentication.encoder
+  [[33m29[39m] Lexik\Bundle\JWTAuthenticationBundle\Encoder\JWTEncoderInterface
+  [[33m30[39m] lexik_jwt_authentication.key_loader
+ > 
