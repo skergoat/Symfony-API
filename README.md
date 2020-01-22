@@ -46,8 +46,8 @@ Go to src > security > token.html.twig and paste public and private keys in the 
 
    From homepage go to "Sign In" page and authenticate 
    
-         username: user
-         password: 000
+      username: user
+      password: 000
 
       - From Dashboard go to "Create access token"
       - Click on "Get Token"
@@ -57,7 +57,7 @@ Go to src > security > token.html.twig and paste public and private keys in the 
    
    Then go to API Documentation. Click on "Authorize" and paste token. In the field write "bearer" just before the token like    this : 
    
-     bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9......
+      bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9......
 
    Register token and then use API documentation  
       
