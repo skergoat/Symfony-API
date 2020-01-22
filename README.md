@@ -49,7 +49,8 @@ Go to src > security > token.html.twig and paste public and private keys in the 
       username: user
       password: 000
 
-      - From Dashboard go to "Create access token"
+    From Dashboard go to "Create access token"
+      
       - Click on "Get Token"
       - Copy token 
       - Go to https://jwt.io/ to activate the token 
