@@ -25,6 +25,7 @@ LOAD :
    go to http://127.0.0.1:8000/ 
 
 
+
 OPENSSL 
 
       $ mkdir -p config/jwt
@@ -39,6 +40,7 @@ Go to
 And copy keys 
 
 Go to src > security > token.html.twig and paste public and private keys in the template at their respective places   
+
 
 
 USE 
