@@ -44,7 +44,7 @@ Go to src > security > token.html.twig and paste public and private keys in the 
 
 USE API  
 
-   From homepage go page "Sign In" and authenticate 
+   From homepage go to page "Sign In" and authenticate 
 
       - username: user
       - password: 000
