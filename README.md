@@ -42,22 +42,19 @@ And copy keys
 Go to src > security > token.html.twig and paste public and private keys in the template at their respective places   
 
 
+USE API  
 
-USE 
-
-   From homepage, go to "Sign In" and authenticate 
+   From homepage go page "Sign In" and authenticate 
 
       - username: user
       - password: 000
 
    From Dashboard go to "Create access token"
-
-      - click on "Get Token"
-      - copy token 
+   Click on "Get Token"
+   Copy token 
    
    Go to https://jwt.io/ to activate the token 
-   
-      - on the webpage paste public, private keys and token 
+   On the webpage paste public, private keys and token 
    
    Then go to API Documentation. Click on "Authorize" and paste token. In the field write "bearer" just before the token like    this : 
    
