@@ -26,7 +26,7 @@ First attempt to make a little test API on Symfony
 
 
 
-GENERATE OPENSSL 
+- GENERATE OPENSSL 
 
       $ mkdir -p config/jwt
       $ openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096
@@ -42,19 +42,18 @@ And copy keys
 Go to src > security > token.html.twig and paste public and private keys in the template at their respective places   
 
 
-USE API  
+- USE API  
 
    From homepage go to "Sign In" page and authenticate 
-
-      - username: user
-      - password: 000
-
-   - From Dashboard go to "Create access token"
-   - Click on "Get Token"
-   - Copy token 
    
-   - Go to https://jwt.io/ to activate the token 
-   - On the webpage paste public, private keys and token 
+         username: user
+         password: 000
+
+      - From Dashboard go to "Create access token"
+      - Click on "Get Token"
+      - Copy token 
+      - Go to https://jwt.io/ to activate the token 
+      - On the webpage paste public, private keys and token 
    
    Then go to API Documentation. Click on "Authorize" and paste token. In the field write "bearer" just before the token like    this : 
    
