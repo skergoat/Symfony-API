@@ -1,24 +1,24 @@
 # symfony-api
 First attempt to make a little test API on Symfony
 
-- LOAD APP : 
+# LOAD APP : 
    
-   Download 
+   1. Download 
       
       $ git clone  
       
-   Dependencies 
+   2. Dependencies 
       
       $ composer install 
    
-   Database 
+   3. Database 
    
       $ php bin/console doctrine:database:create
       $ php bin/console make:migration
       $ php bin/console doctrine:migrations:migrate      
       $ php bin/console doctrine:fixtures:load
       
-   Run 
+   4. Run 
   
       $ symfony server:start 
    
@@ -26,7 +26,7 @@ First attempt to make a little test API on Symfony
 
 
 
-- GENERATE OPENSSL 
+# GENERATE OPENSSL 
 
       $ mkdir -p config/jwt
       $ openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096
@@ -34,19 +34,19 @@ First attempt to make a little test API on Symfony
    
       *** Phrase = phrase *** 
       
-   Go to 
+   1. Go to 
 
       config > jwt > private.pem
       config > jwt > public.pem
 
-   And copy keys 
+   2. And copy keys 
 
-   Go to src > security > token.html.twig and paste public and private keys in the template at their respective places   
+   3. Go to src > security > token.html.twig and paste public and private keys in the template at their respective places   
 
 
-- USE API  
+# USE API  
 
-   From homepage go to "Sign In" page and authenticate 
+   1. From homepage go to "Sign In" page and authenticate 
    
       username: user
       password: 000
@@ -58,11 +58,11 @@ First attempt to make a little test API on Symfony
       Go to https://jwt.io/ to activate the token 
       On the webpage paste public, private keys and token 
    
-   Then go to "API Documentation". Click on "Authorize" and paste token. In the field write "bearer" just before the token        like this : 
+   2. Then go to "API Documentation". Click on "Authorize" and paste token. In the field write "bearer" just before the token        like this : 
    
       bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9......
 
-   Register token and then use API documentation  
+   3. Register token and then use API documentation  
    
    All functionalities does not work. It's not a real API, just a test 
       
