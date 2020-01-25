@@ -5,22 +5,22 @@ First attempt to make a little test API on Symfony
    
    1. Download 
       
-      $ git clone  
+            $ git clone  
       
    2. Dependencies 
       
-      $ composer install 
+            $ composer install 
    
    3. Database 
    
-      $ php bin/console doctrine:database:create
-      $ php bin/console make:migration
-      $ php bin/console doctrine:migrations:migrate      
-      $ php bin/console doctrine:fixtures:load
+            $ php bin/console doctrine:database:create
+            $ php bin/console make:migration
+            $ php bin/console doctrine:migrations:migrate      
+            $ php bin/console doctrine:fixtures:load
       
    4. Run 
   
-      $ symfony server:start 
+            $ symfony server:start 
    
    go to http://127.0.0.1:8000/ 
 
@@ -36,8 +36,8 @@ First attempt to make a little test API on Symfony
       
    1. Go to 
 
-      config > jwt > private.pem
-      config > jwt > public.pem
+            config > jwt > private.pem
+            config > jwt > public.pem
 
    2. And copy keys 
 
@@ -48,8 +48,8 @@ First attempt to make a little test API on Symfony
 
    1. From homepage go to "Sign In" page and authenticate 
    
-      username: user
-      password: 000
+            username: user
+            password: 000
 
     From Dashboard go to "Create access token"
       
