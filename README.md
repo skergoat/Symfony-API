@@ -36,8 +36,8 @@ First attempt to make a little test API on Symfony
       
    1. Go to 
 
-            config > jwt > private.pem
-            config > jwt > public.pem
+     config > jwt > private.pem
+     config > jwt > public.pem
 
    2. And copy keys 
 
@@ -48,8 +48,8 @@ First attempt to make a little test API on Symfony
 
    1. From homepage go to "Sign In" page and authenticate 
    
-            username: user
-            password: 000
+     username: user
+     password: 000
 
     From Dashboard go to "Create access token"
       
@@ -60,7 +60,7 @@ First attempt to make a little test API on Symfony
    
    2. Then go to "API Documentation". Click on "Authorize" and paste token. In the field write "bearer" just before the token        like this : 
    
-      bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9......
+     bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9......
 
    3. Register token and then use API documentation  
    
